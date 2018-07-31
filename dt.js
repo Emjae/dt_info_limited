@@ -18,7 +18,7 @@
 				  if(type === "dollar"){(rate = dolartoday['USD']['dolartoday'])};
 				  if(type === "euro"){(rate = dolartoday['EUR']['dolartoday'])};
 				  }
-                  callback(rate);
+                  callback();
 				  
               }
         });
