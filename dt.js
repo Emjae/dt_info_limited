@@ -22,8 +22,8 @@
 	};
 	ext.bitcoin = function(type)
 	{
-	if(type === "dollar"){return data.USD.efectivo_cucuta};
-	if(type === "euro"){return data.EUR.efectivo_cucuta};
+	if(type === "dollar"){return data.USD.sicad1};
+	if(type === "euro"){return data.EUR.sicad1};
 	};
 	ext.eurusd = function(type)
 	{
@@ -34,9 +34,9 @@
     var descriptor = {
         blocks: [
 		[' ', 'get exchange rate data', 'get_data'],
-		['r', 'dolartoday %m.currency price', 'dolartoday' ],
-		['r', '%m.currency cash price', 'cash' ],
-		['r', 'estimated %m.currency price through LocalBitCoins', 'bitcoin' ],
+		['r', 'dolartoday %m.currency price', 'dolartoday' , 'dollar' ],
+		['r', '%m.currency cash price', 'cash', 'dollar' ],
+		['r', 'estimated %m.currency price through LocalBitCoins', 'bitcoin','dollar' ],
 		['r', 'EUR/USD rate', 'eurusd' ],
 		
         ],
