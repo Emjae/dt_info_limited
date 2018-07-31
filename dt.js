@@ -12,7 +12,7 @@
 		$.ajax({
               url: 'https://s3.amazonaws.com/dolartoday/data.json',
               dataType: 'json',
-              success: function( dolartoday ) {
+              success: function( currency ) {
 				  if(currency === "dollar"){rate = dolartoday['USD']['dolartoday']};
 				  if(currency === "euro"){rate = dolartoday['EUR']['dolartoday']};
                   callback(rate);
@@ -23,9 +23,9 @@
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-		['R', 'current exchange rate in %m.currency', 'get_rate'],
+		['R', 'current exchange rate in %m.currency', 'get_rate', 'dollar'],
         ],
-		menus: {currency: ["dollar", "euro"]},
+		menus: {currency: ["dollar","euro"]},
     };
 
     // Register the extension
