@@ -12,9 +12,9 @@
 	ext.get_data = function (){fetch("https://s3.amazonaws.com/dolartoday/data.json").then(function (j){return j.json()}).then(function (j){data = j})};
 	ext.dolartoday = function(type)
 	{
-	if(type === "dollar"){return data.USD.dolartoday);
-	if(type === "euro"){return data.EUR.dolartoday);
-	}
+    if(type === "dollar"){return data.USD.dolartoday}
+    if(type === "euro"){return data.EUR.dolartoday}
+	};
 	
     // Block and block menu descriptions
     var descriptor = {
