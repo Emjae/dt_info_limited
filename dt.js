@@ -12,10 +12,14 @@
 		$.ajax({
               url: 'https://s3.amazonaws.com/dolartoday/data.json',
               dataType: 'json',
-              success: function( currency ) {
-				  if(currency === "dollar"){rate = dolartoday['USD']['dolartoday']};
-				  if(currency === "euro"){rate = dolartoday['EUR']['dolartoday']};
+              success: function( dolartoday ) {
+				  
+				  ext.exchange = function(type){
+				  if(type === "dollar"){(rate = dolartoday['USD']['dolartoday'])};
+				  if(type === "euro"){(rate = dolartoday['EUR']['dolartoday'])};
+				  }
                   callback(rate);
+				  
               }
         });
 	}
