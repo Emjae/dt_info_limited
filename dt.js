@@ -25,14 +25,19 @@
 	if(type === "dollar"){return data.USD.efectivo_cucuta};
 	if(type === "euro"){return data.EUR.efectivo_cucuta};
 	};
+	ext.eurusd = function(type)
+	{
+	return data.EURUSD.rate;
+	};
 	
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
 		[' ', 'get exchange rate data', 'get_data'],
-		['R', 'dolartoday %m.currency price', 'dolartoday' ],
-		['R', '%m.currency cash price', 'cash' ],
-		['R', 'estimated %m.currency price through LocalBitCoins', 'bitcoin' ],
+		['r', 'dolartoday %m.currency price', 'dolartoday' ],
+		['r', '%m.currency cash price', 'cash' ],
+		['r', 'estimated %m.currency price through LocalBitCoins', 'bitcoin' ],
+		['r', 'EUR/USD rate', 'eurusd' ],
 		
         ],
 		menus: {currency: ["dollar","euro"]},
