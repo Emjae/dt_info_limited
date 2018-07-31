@@ -1,4 +1,5 @@
 (function(ext) {
+	var data = {"USD":{"dolartoday":0,"sicad1":0,"efectivo_cucuta":0},"EUR":{"dolartoday":0,"sicad1":0,"efectivo_cucuta":0},"COL":{"efectivo":0},"EURUSD":{"rate":0}};
     // Cleanup function when the extension is unloaded
     ext._shutdown = function() {};
 
@@ -8,26 +9,19 @@
         return {status: 2, msg: 'Ready'};
     };
 	
-	ext.get_rate = function(callback) {
-		$.ajax({
-              url: 'https://s3.amazonaws.com/dolartoday/data.json',
-              dataType: 'json',
-              success: function( dolartoday ) {
-				  
-				  ext.exchange = function(type){
-				  if(type === "dollar"){(rate = dolartoday['USD']['dolartoday'])};
-				  if(type === "euro"){(rate = dolartoday['EUR']['dolartoday'])};
-				  }
-                  callback();
-				  
-              }
-        });
+	ext.get_data = function (){fetch("https://s3.amazonaws.com/dolartoday/data.json").then(function (j){return j.json()}).then(function (j){data = j})};
+	ext.dolartoday = function(type)
+	{
+	if(type === "dollar"){return data.USD.dolartoday);
+	if(type === "euro"){return data.EUR.dolartoday);
 	}
-
+	
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-		['R', 'current exchange rate in %m.currency', 'get_rate', 'dollar'],
+		[' ', 'get exchange rate data', 'get_data'],
+		['r', 'dolartoday rate in %m.currency', 'dolartoday' ],
+		
         ],
 		menus: {currency: ["dollar","euro"]},
     };
