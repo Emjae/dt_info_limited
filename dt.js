@@ -8,12 +8,13 @@
         return {status: 2, msg: 'Ready'};
     };
 	
-	ext.get_rate = function(callback) {
+	ext.get_rate = function() {
 		$.ajax({
               url: 'https://s3.amazonaws.com/dolartoday/data.json',
               dataType: 'json',
               success: function( dolartoday ) {
-                  rate = dolartoday['USD']['dolartoday'];
+				  if(currency === "dollar"){rate = dolartoday['USD']['dolartoday']};
+				  if(currency === "euro"){rate = dolartoday['EUR']['dolartoday']};
                   callback(rate);
               }
         });
@@ -22,8 +23,9 @@
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-		['R', 'current exchange rate', 'get_rate'],
-        ]
+		['R', 'current exchange rate in %m.currency', 'get_rate'],
+        ],
+		menus: {currency: ["dollar", "euro"]},
     };
 
     // Register the extension
