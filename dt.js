@@ -1,5 +1,5 @@
 (function(ext) {
-	var data = {"USD":{"dolartoday":0,"sicad1":0,"efectivo_cucuta":0},"EUR":{"dolartoday":0,"sicad1":0,"efectivo_cucuta":0},"COL":{"efectivo":0},"EURUSD":{"rate":0}};
+	var data = {"USD":{"dolartoday":0,"localbitcoin_ref":0,"efectivo_cucuta":0},"EUR":{"dolartoday":0,"sicad1":0,"efectivo_cucuta":0},"COL":{"efectivo":0},"EURUSD":{"rate":0}};
     // Cleanup function when the extension is unloaded
     ext._shutdown = function() {};
 
@@ -22,8 +22,8 @@
 	};
 	ext.bitcoin = function(type)
 	{
-	if(type === "dollar"){return data.USD.sicad1};
-	if(type === "euro"){return data.EUR.sicad1};
+	if(type === "dollar"){return data.USD.localbitcoin_ref};
+	if(type === "euro"){return data.USD.sicad1*data.EURUSD.rate};
 	};
 	ext.eurusd = function(type)
 	{
