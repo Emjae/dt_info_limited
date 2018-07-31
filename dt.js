@@ -8,7 +8,7 @@
         return {status: 2, msg: 'Ready'};
     };
 	
-	ext.get_rate = function() {
+	ext.get_rate = function(callback) {
 		$.ajax({
               url: 'https://s3.amazonaws.com/dolartoday/data.json',
               dataType: 'json',
