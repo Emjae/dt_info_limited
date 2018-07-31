@@ -11,7 +11,7 @@
 	ext.get_rate = function() {
 		$.ajax({
               url: 'https://s3.amazonaws.com/dolartoday/data.json',
-              dataType: 'jsonp',
+              dataType: 'json',
               success: function( dolartoday ) {
                   rate = dolartoday['USD']['dolartoday'];
                   callback(rate);
