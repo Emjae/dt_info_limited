@@ -23,7 +23,7 @@
 	ext.bitcoin = function(type)
 	{
 	if(type === "dollar"){return data.USD.localbitcoin_ref};
-	if(type === "euro"){return data.USD.sicad1*data.EURUSD.rate};
+	if(type === "euro"){return data.USD.localbitcoin_ref*data.EURUSD.rate};
 	};
 	ext.eurusd = function(type)
 	{
