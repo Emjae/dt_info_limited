@@ -28,6 +28,7 @@
     var descriptor = {
         blocks: [
 		[' ', 'get exchange rate data', 'get_data'],
+		[' ', 'get previous close', 'get_session'],
 		['r', '%m.type value', 'price' , 'close' ],
 		['r', 'previous close', 'sessionData'],
 		
