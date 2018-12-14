@@ -9,7 +9,7 @@
         return {status: 2, msg: 'Ready'};
     };
 	
-	ext.get_data = function (){fetch("https://freedolar.com/getDailyOHLC?ccy=usdves").then(function (j){return j.json()}).then(function (j){data = j})};
+	ext.get_data = function (){fetch("https://cors.io/?https://freedolar.com/getDailyOHLC?ccy=usdves").then(function (j){return j.json()}).then(function (j){data = j})};
 	ext.price = function(type)
 	{
 	if(type === "open"){return data.open};
