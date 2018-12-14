@@ -1,5 +1,5 @@
 (function(ext) {
-	var data = [{"_id":{},"low":0,"high":0,"open":0,"close":0}];
+	var data = [{"_id":{},"low":"0","high":"0","open":"0","close":"0"}];
     // Cleanup function when the extension is unloaded
     ext._shutdown = function() {};
 
