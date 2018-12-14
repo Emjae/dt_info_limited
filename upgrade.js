@@ -12,10 +12,10 @@
 	ext.get_data = function (){fetch("https://cors.io/?https://freedolar.com/getDailyOHLC?ccy=usdves").then(function (j){return j.json()}).then(function (j){data = j})};
 	ext.price = function(type)
 	{
-	if(type === "open"){return data.open};
-	if(type === "high"){return data.high};
-	if(type === "low"){return data.low};
-	if(type === "close"){return data.close};
+	if(type === "open"){return data[0].open};
+	if(type === "high"){return data[0].high};
+	if(type === "low"){return data[0].low};
+	if(type === "close"){return data[0].close};
 	};
 	
     // Block and block menu descriptions
