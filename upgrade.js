@@ -21,7 +21,7 @@
 	};
 	ext.sessionData = function(type)
 	{
-	return session.close
+	return session.close;
 	};
 	
     // Block and block menu descriptions
