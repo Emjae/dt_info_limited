@@ -11,7 +11,7 @@
     };
 	
 	ext.get_data = function (){fetch("https://cors.io/?https://freedolar.com/getDailyOHLC?ccy=usdves").then(function (j){return j.json()}).then(function (j){data = j})};
-	ext.get_session = function (){fetch("https://cors.io/?https://freedolar.com/getDay?ccy=usdves").then(function (j){return j.json()}).then(function (j){data = j})};
+	ext.get_session = function (){fetch("https://cors.io/?https://freedolar.com/getDay?ccy=usdves").then(function (j){return j.json()}).then(function (j){session = j})};
 	ext.price = function(type)
 	{
 	if(type === "open"){return data[0].open};
