@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<!-- saved from url=(0032)https://www.freewebs.com/fyuber/ -->
-<html><link type="text/css" id="dark-mode" rel="stylesheet" href="https://www.freewebs.com/fyuber/"><style type="text/css" id="dark-mode-custom-style"></style><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><title>Coin weight calculator</title><style>
+<!doctype html><head><title>Coin weight calculator</title><style>
 .o{display:none}	/*must be first rule as rule[0] is manipulated by function t()*/
 h1,div,p,table,input{text-align:center}
 h1,div,p,table{min-width:50%}
@@ -19,7 +17,7 @@ tfoot tr{border-top:2px double silver}
 <div><label>Type currency code: <input id="x" list="y" onchange="z()" value="EUR"></label>
 <datalist id="y"><label> or choose: <select id="s" onchange="z(s)">
 <optgroup label="Euro and pegged European coins">
-<option selected="" value="EUR">EUR (Euro)</option>
+<option selected value="EUR">EUR (Euro)</option>
 <option value="ATS">ATS (Austrian schilling, groschen)</option>
 <option value="ATS">ATS (Österreichischer Schilling, Groschen)</option>
 <option value="DEM">DEM (German mark, Deutschmark, pfennig, DM)</option>
@@ -33,7 +31,7 @@ tfoot tr{border-top:2px double silver}
 <option value="LVL">LVL (Latvian lats/latu/lati)</option>
 <option value="BAM">BAM (Bosnia and Herzegovina marka, BiH)</option>
 <option value="BGN">BGN (Bulgarian lev, BGL old lev)</option>
-</optgroup><optgroup label="Widely used European coins">
+<optgroup label="Widely used European coins">
 <option value="GBP">GBP ([Great] British pound sterling, pence, United Kingdom, UK pound)</option>
 <option value="GBP">GBP (Jersey/Guernsey/Alderney/Channel Islands/CI pound sterling, pence, JEP, GGP])</option>
 <option value="GBS">GBP (Isle of Man/Gibraltar/St Helena/Falklands pound, IMP, GIP, SHP, FKP)</option>
@@ -47,7 +45,7 @@ tfoot tr{border-top:2px double silver}
 <option value="HUF">HUF (Hungarian/Magyar forint)</option>
 <option value="PLN">PLN (Polish zloty/zloty/zlote/zlotych (PLZ))</option>
 <option value="PLN">PLN (Polish zloty/zloty/zlote/zlotych (PLZ))</option>
-</optgroup><optgroup label="Widely used coins">
+<optgroup label="Widely used coins">
 <option value="USD">USD (United States[USA/American] dollar)</option>
 <option value="JPY">JPY (Japanese yen)</option>
 <option value="AUD">AUD (Australian dollar)</option>
@@ -60,7 +58,7 @@ tfoot tr{border-top:2px double silver}
 <option value="ILS">ILS (Israeli shekel/sheqel, NIS)</option>
 <option value="MAD">MAD (Moroccan dirham)</option>
 <option value="THB">THB (Thai[land] baht)</option>
-</optgroup><optgroup label="Other European coins">
+<optgroup label="Other European coins">
 <option value="ALL">ALL (Albanian/Shqiptar lek/leku)</option>
 <option value="BYN">BYN (Belarusian ruble/rouble (BYR))</option>
 <option value="MDL">MDL (Moldovan leu/lei/ban/bani)</option>
@@ -70,7 +68,7 @@ tfoot tr{border-top:2px double silver}
 <option value="RUB">RUB (Russian ruble/rouble)</option>
 <option value="TRY">TRY (Turkish lira/kuru&#351; TL (TRL, YTL))</option>
 <option value="UAH">UAH (Ukranian hryvnia/grivna)</option>
-</optgroup><optgroup label="Caribbean coins">
+<optgroup label="Caribbean coins">
 <option value="ANG">ANG (Netherlands Antilles guilder, Curaçao and Sint Maarten, Caribbean)</option>
 <option value="AWG">AWG (Aruban florin)</option>
 <option value="BBD">BBD (Barbadian[Barbados]/Bajan dollar)</option>
@@ -82,7 +80,7 @@ tfoot tr{border-top:2px double silver}
 <option value="JMD">JMD (Jamaican dollar)</option>
 <option value="TTD">TTD (Trinidad and Tobago dollar)</option>
 <option value="XCD">XCD (East Caribbean dollar)</option>
-</optgroup><optgroup label="Other Arab and Middle Eastern coins">
+<optgroup label="Other Arab and Middle Eastern coins">
 <option value="BHD">BHD (Bahraini dinar)</option>
 <option value="EGP">EGP (Egyptian pound/piastre, LE)</option>
 <option value="JOD">JOD (Jordanian dinar)</option>
@@ -90,7 +88,7 @@ tfoot tr{border-top:2px double silver}
 <option value="OMR">OMR (Omani rial/baisa)</option>
 <option value="QAR">QAR (Qatari rial/dirham)</option>
 <option value="SAR">SAR (Saudi rial)</option>
-</optgroup><optgroup label="Other Asian coins">
+<optgroup label="Other Asian coins">
 <option value="AMD">AMD (Armenian dram)</option>
 <option value="AZN">AZN (Azerbaijani[Az&#601;rbaycan]/Azeri manat/q&#601;pik (AZM))</option>
 <option value="BND">BND (Bruneian dollar)</option>
@@ -103,7 +101,7 @@ tfoot tr{border-top:2px double silver}
 <option value="MYR">MYR (Malaysian ringgit)</option>
 <option value="PHP">PHP (Philippine/Filipino peso)</option>
 <option value="USD">USD (East Timorese/Timor l'Este centavos of the US dollar)</option>
-</optgroup><optgroup label="Latin American coins">
+<optgroup label="Latin American coins">
 <option value="ARS">ARS (Argentinian peso)</option>
 <option value="BRL">BRL (Brazilian real/reais)</option>
 <option value="BZD">BZD (Belize dollar)</option>
@@ -120,7 +118,7 @@ tfoot tr{border-top:2px double silver}
 <option value="SRD"> ()</option>
 <option value="USD">USD (Ecuadorean centavos of the US dollar)</option>
 <option value="UYU">UYU (Uruguayan peso)</option>
-</optgroup><optgroup label="Other Oceania/Pacific coins">
+<optgroup label="Other Oceania/Pacific coins">
 <option value="FJD">FJD (Fijian dollar)</option>
 <option value="PGK">PGK ()</option>
 <option value="SBD">SBD ()</option>
@@ -128,7 +126,7 @@ tfoot tr{border-top:2px double silver}
 <option value="VUV">VUV (Vanuatuan vatu)</option>
 <option value="WST">WST ([West] Samoan tala)</option>
 <option value="XPF">XPF (CPF/Pacific/Polynesian franc [Change Franc Pacifique])</option>
-</optgroup><optgroup label="Other African coins">
+<optgroup label="Other African coins">
 <option value="CVE">CVE (Cape Verdean[Cabo Verde] escudo)</option>
 <option value="GHS">GHS (Ghanaian cedi/pesewa)</option>
 <option value="KES">KES (Kenyan shilling)</option>
@@ -141,13 +139,25 @@ tfoot tr{border-top:2px double silver}
 <option value="UGX">UGX (Ugandan shilling)</option>
 <option value="ZAR">ZAR (South African/Zuid Afrika rand)</option>
 <option value="ZMW">ZMW (Zambian kwacha/ngwee)</option>
-</optgroup></select></label></datalist></div>
+</select></label></datalist></div>
 
 <p>Start typing in any field and the others will update accordingly.
 <input id="t" type="button" onclick="t()" value="Reveal old and special coins"></p>
 
-<table><thead><tr><th>Denomination</th><th>Number of coins</th><th>...or number of full bags</th><th id="z">Total Value</th><th id="w">Weight per coin (bag)</th><th>Total Weight (g)
-</th></tr></thead><tbody><tr><td>€2 in bags of €50</td><td><input id="a0" type="text" oninput="y(&#39;a&#39;,0)"></td><td><input class="bag" id="d0" type="text" oninput="y(&#39;d&#39;,0)"></td><td><input id="b0" type="text" oninput="y(&#39;b&#39;,0)" onchange="y(&#39;a&#39;,0)"></td><td>8.5g (×25= 212.5g)</td><td><input id="c0" type="text" oninput="y(&#39;c&#39;,0)" onchange="y(&#39;a&#39;,0)"></td></tr><tr><td>€1 in bags of €25</td><td><input id="a1" type="text" oninput="y(&#39;a&#39;,1)"></td><td><input class="bag" id="d1" type="text" oninput="y(&#39;d&#39;,1)"></td><td><input id="b1" type="text" oninput="y(&#39;b&#39;,1)" onchange="y(&#39;a&#39;,1)"></td><td>7.5g (×25= 187.5g)</td><td><input id="c1" type="text" oninput="y(&#39;c&#39;,1)" onchange="y(&#39;a&#39;,1)"></td></tr><tr><td>50¢ in bags of €25</td><td><input id="a2" type="text" oninput="y(&#39;a&#39;,2)"></td><td><input class="bag" id="d2" type="text" oninput="y(&#39;d&#39;,2)"></td><td><input id="b2" type="text" oninput="y(&#39;b&#39;,2)" onchange="y(&#39;a&#39;,2)"></td><td>7.8g (×50= 390g)</td><td><input id="c2" type="text" oninput="y(&#39;c&#39;,2)" onchange="y(&#39;a&#39;,2)"></td></tr><tr><td>20¢ in bags of €10</td><td><input id="a3" type="text" oninput="y(&#39;a&#39;,3)"></td><td><input class="bag" id="d3" type="text" oninput="y(&#39;d&#39;,3)"></td><td><input id="b3" type="text" oninput="y(&#39;b&#39;,3)" onchange="y(&#39;a&#39;,3)"></td><td>5.74g (×50= 287g)</td><td><input id="c3" type="text" oninput="y(&#39;c&#39;,3)" onchange="y(&#39;a&#39;,3)"></td></tr><tr><td>10¢ in bags of €10</td><td><input id="a4" type="text" oninput="y(&#39;a&#39;,4)"></td><td><input class="bag" id="d4" type="text" oninput="y(&#39;d&#39;,4)"></td><td><input id="b4" type="text" oninput="y(&#39;b&#39;,4)" onchange="y(&#39;a&#39;,4)"></td><td>4.1g (×100= 410g)</td><td><input id="c4" type="text" oninput="y(&#39;c&#39;,4)" onchange="y(&#39;a&#39;,4)"></td></tr><tr><td>5¢ in bags of €5</td><td><input id="a5" type="text" oninput="y(&#39;a&#39;,5)"></td><td><input class="bag" id="d5" type="text" oninput="y(&#39;d&#39;,5)"></td><td><input id="b5" type="text" oninput="y(&#39;b&#39;,5)" onchange="y(&#39;a&#39;,5)"></td><td>3.92g (×100= 392g)</td><td><input id="c5" type="text" oninput="y(&#39;c&#39;,5)" onchange="y(&#39;a&#39;,5)"></td></tr><tr><td>2¢ in bags of €2</td><td><input id="a6" type="text" oninput="y(&#39;a&#39;,6)"></td><td><input class="bag" id="d6" type="text" oninput="y(&#39;d&#39;,6)"></td><td><input id="b6" type="text" oninput="y(&#39;b&#39;,6)" onchange="y(&#39;a&#39;,6)"></td><td>3.06g (×100= 306g)</td><td><input id="c6" type="text" oninput="y(&#39;c&#39;,6)" onchange="y(&#39;a&#39;,6)"></td></tr><tr><td>1¢ in bags of €1</td><td><input id="a7" type="text" oninput="y(&#39;a&#39;,7)"></td><td><input class="bag" id="d7" type="text" oninput="y(&#39;d&#39;,7)"></td><td><input id="b7" type="text" oninput="y(&#39;b&#39;,7)" onchange="y(&#39;a&#39;,7)"></td><td>2.3g (×100= 230g)</td><td><input id="c7" type="text" oninput="y(&#39;c&#39;,7)" onchange="y(&#39;a&#39;,7)"></td></tr><tr class="o"><td>German €5 coin</td><td><input class="p" id="a8" type="text" oninput="y(&#39;a&#39;,8)"></td><td><input class="bag p" id="d8" type="text" oninput="y(&#39;d&#39;,8)"></td><td><input class="p" id="b8" type="text" oninput="y(&#39;b&#39;,8)" onchange="y(&#39;a&#39;,8)"></td><td>9g (×1= 9g)</td><td><input class="p" id="c8" type="text" oninput="y(&#39;c&#39;,8)" onchange="y(&#39;a&#39;,8)"></td></tr></tbody><tfoot id="total"><tr><th>Totals:</th><th id="ct"></th><th id="bt"></th><th id="vt"></th><th id="peg"></th><th id="wt"></th></tr></tfoot></table><script>const x = document.getElementById('x');
+<table><thead><tr><th>Denomination<th>Number of coins<th id="h">...or number of full bags<th id="z">Total Value<th id="w">Weight per coin (bag)<th>Total Weight (g)
+<tbody>
+<tr><td>€2 in bags of €50<td><input id="a0" type="text" oninput="y('a',0)"><td><input class="bag" id="d0" type="text" oninput="y('d',0)"><td><input id="b0" type="text" oninput="y('b',0)" onchange="y('a',0)"><td>8.5g (×25= 212.5g)<td><input id="c0" type="text" oninput="y('c',0)" onchange="y('a',0)">
+<tr><td>€1 in bags of €25<td><input id="a1" type="text" oninput="y('a',1)"><td><input class="bag" id="d1" type="text" oninput="y('d',1)"><td><input id="b1" type="text" oninput="y('b',1)" onchange="y('a',1)"><td>7.5g (×25= 187.5g)<td><input id="c1" type="text" oninput="y('c',1)" onchange="y('a',1)">
+<tr><td>50c in bags of €25<td><input id="a2" type="text" oninput="y('a',2)"><td><input class="bag" id="d2" type="text" oninput="y('d',2)"><td><input id="b2" type="text" oninput="y('b',2)" onchange="y('a',2)"><td>7.8g (×50= 390g)<td><input id="c2" type="text" oninput="y('c',2)" onchange="y('a',2)">
+<tr><td>20c in bags of €10<td><input id="a3" type="text" oninput="y('a',3)"><td><input class="bag" id="d3" type="text" oninput="y('d',3)"><td><input id="b3" type="text" oninput="y('b',3)" onchange="y('a',3)"><td>5.74g (×50= 287g)<td><input id="c3" type="text" oninput="y('c',3)" onchange="y('a',3)">
+<tr><td>10c in bags of €10<td><input id="a4" type="text" oninput="y('a',4)"><td><input class="bag" id="d4" type="text" oninput="y('d',4)"><td><input id="b4" type="text" oninput="y('b',4)" onchange="y('a',4)"><td>4.1g (×100= 410g)<td><input id="c4" type="text" oninput="y('c',4)" onchange="y('a',4)">
+<tr><td>5c in bags of €5<td><input id="a5" type="text" oninput="y('a',5)"><td><input class="bag" id="d5" type="text" oninput="y('d',5)"><td><input id="b5" type="text" oninput="y('b',5)" onchange="y('a',5)"><td>3.92g (×100= 392g)<td><input id="c5" type="text" oninput="y('c',5)" onchange="y('a',5)">
+<tr><td>2c in bags of €2<td><input id="a6" type="text" oninput="y('a',6)"><td><input class="bag" id="d6" type="text" oninput="y('d',6)"><td><input id="b6" type="text" oninput="y('b',6)" onchange="y('a',6)"><td>3.06g (×100= 306g)<td><input id="c6" type="text" oninput="y('c',6)" onchange="y('a',6)">
+<tr><td>1c in bags of €1<td><input id="a7" type="text" oninput="y('a',7)"><td><input class="bag" id="d7" type="text" oninput="y('d',7)"><td><input id="b7" type="text" oninput="y('b',7)" onchange="y('a',7)"><td>2.3g (×100= 230g)<td><input id="c7" type="text" oninput="y('c',7)" onchange="y('a',7)">
+<tr class="o"><td>German €5 coin<td><input class="p" id="a8" type="text" oninput="y('a',8)"><td><input class="bag p" id="d8" type="text" oninput="y('d',8)"><td><input class="p" id="b8" type="text" oninput="y('b',8)" onchange="y('a',8)"><td><td><input id="c8" type="text" oninput="y('c',8)" onchange="y('a',8)">
+<tfoot id="total"><tr><th>Totals:<th id="ct"><th id="bt"><th id="vt"><th id="peg"><th id="wt">
+
+</table><script>const x = document.getElementById('x');
 const ct = document.getElementById('ct');
 const vt = document.getElementById('vt');
 const wt = document.getElementById('wt');
@@ -881,7 +891,4 @@ if(c=='')return{"front":"","back":"","bags":"bag","denom":[
 
 
 
-}let s=window.location.search.slice(1,4).toUpperCase();if(s){x.value=s;z();}</script></body><style id="stylish-1" class="stylish" type="text/css">/* License: CC0 Public Domain (creativecommons.org/publicdomain/zero/1.0/) */
-/* Version: 2014-09-27 (userstyles.org/styles/64023) */
-/* AGENT_SHEET */
-@namespace url(http://www.w3.org/1999/xhtml);</style></html>
+}let s=window.location.search.slice(1,4).toUpperCase();if(s){x.value=s;z();}</script>
