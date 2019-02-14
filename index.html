@@ -1,7 +1,887 @@
 <!DOCTYPE html>
-<html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-</body>
-</html>
+<!-- saved from url=(0032)https://www.freewebs.com/fyuber/ -->
+<html><link type="text/css" id="dark-mode" rel="stylesheet" href="https://www.freewebs.com/fyuber/"><style type="text/css" id="dark-mode-custom-style"></style><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><title>Coin weight calculator</title><style>
+.o{display:none}	/*must be first rule as rule[0] is manipulated by function t()*/
+h1,div,p,table,input{text-align:center}
+h1,div,p,table{min-width:50%}
+h1,div,p{margin:1em auto}
+input[type=text]{max-width:5em}
+#x{max-width:none}
+@-moz-document url-prefix(){#x{width:40em}}
+table{margin:auto;table-layout:fixed;border-collapse:collapse}
+thead tr{border-bottom:1px solid silver}
+thead tr th,tfoot tr th{padding:0 1ex}
+.bag{color:dimgray}
+#peg{text-align:left}
+tfoot tr{border-top:2px double silver}
+
+</style></head><body><h1>Coin weight calculator</h1>
+<div><label>Type currency code: <input id="x" list="y" onchange="z()" value="EUR"></label>
+<datalist id="y"><label> or choose: <select id="s" onchange="z(s)">
+<optgroup label="Euro and pegged European coins">
+<option selected="" value="EUR">EUR (Euro)</option>
+<option value="ATS">ATS (Austrian schilling, groschen)</option>
+<option value="ATS">ATS (Österreichischer Schilling, Groschen)</option>
+<option value="DEM">DEM (German mark, Deutschmark, pfennig, DM)</option>
+<option value="DEM">DEM (Deutsche Mark, Pfennig, D-Mark)</option>
+<option value="ESP">ESP (Spanish [Spain] peseta)</option>
+<option value="ESP">ESP (peseta española)</option>
+<option value="IEP">IEP (Irish [Ireland/Eire] pound, penny, pence)</option>
+<option value="IEP">IEP (punt/punta/puint Éireannach, pingin)</option>
+<option value="EEK">EEK (Estonian/Eesti kroon[crown])</option>
+<option value="LTL">LTL (Lithuanian/Lietuvos litas/litu/litai)</option>
+<option value="LVL">LVL (Latvian lats/latu/lati)</option>
+<option value="BAM">BAM (Bosnia and Herzegovina marka, BiH)</option>
+<option value="BGN">BGN (Bulgarian lev, BGL old lev)</option>
+</optgroup><optgroup label="Widely used European coins">
+<option value="GBP">GBP ([Great] British pound sterling, pence, United Kingdom, UK pound)</option>
+<option value="GBP">GBP (Jersey/Guernsey/Alderney/Channel Islands/CI pound sterling, pence, JEP, GGP])</option>
+<option value="GBS">GBP (Isle of Man/Gibraltar/St Helena/Falklands pound, IMP, GIP, SHP, FKP)</option>
+<option value="CHF">CHF (Swiss[Switzerland/Schweizer/suisse/Svizzero] franc/Franken)</option>
+<option value="DKK">DKK (Danish[Denmark]/dansk krona/kroner[crown])</option>
+<option value="ISK">ISK (Icelandic/islensk krona/kronur[crown])</option>
+<option value="NOK">NOK (Norwegian[Norway/Norge/Noreg]/norsk krona/kroner[crown])</option>
+<option value="SEK">SEK (Swedish[Sweden/Sverige]/svensk krona/kronor[crown])</option>
+<option value="CZK">CZK (Czech/ceská/ceských koruna/koruny[crown])</option>
+<option value="HRK">HRK (Croatian/Hrvatska kuna/lipa)</option>
+<option value="HUF">HUF (Hungarian/Magyar forint)</option>
+<option value="PLN">PLN (Polish zloty/zloty/zlote/zlotych (PLZ))</option>
+<option value="PLN">PLN (Polish zloty/zloty/zlote/zlotych (PLZ))</option>
+</optgroup><optgroup label="Widely used coins">
+<option value="USD">USD (United States[USA/American] dollar)</option>
+<option value="JPY">JPY (Japanese yen)</option>
+<option value="AUD">AUD (Australian dollar)</option>
+<option value="CAD">CAD (Canadian dollar)</option>
+<option value="HKD">HKD (Hong Kong dollar)</option>
+<option value="NZD">NZD (New Zealand dollar)</option>
+<option value="SGD">SGD (Singaporean dollar)</option>
+<option value="TWD">TWD (New Taiwan[NT] dollar)</option>
+<option value="AED">AED (United Arab Emirates[UAE] dirham)</option>
+<option value="ILS">ILS (Israeli shekel/sheqel, NIS)</option>
+<option value="MAD">MAD (Moroccan dirham)</option>
+<option value="THB">THB (Thai[land] baht)</option>
+</optgroup><optgroup label="Other European coins">
+<option value="ALL">ALL (Albanian/Shqiptar lek/leku)</option>
+<option value="BYN">BYN (Belarusian ruble/rouble (BYR))</option>
+<option value="MDL">MDL (Moldovan leu/lei/ban/bani)</option>
+<option value="MKD">MKD ([North] Macedonian denar)</option>
+<option value="RON">RON (Romanian leu/lei/ban/bani, ROL old leu)</option>
+<option value="RSD">RSD (Serbian dinar)</option>
+<option value="RUB">RUB (Russian ruble/rouble)</option>
+<option value="TRY">TRY (Turkish lira/kuru&#351; TL (TRL, YTL))</option>
+<option value="UAH">UAH (Ukranian hryvnia/grivna)</option>
+</optgroup><optgroup label="Caribbean coins">
+<option value="ANG">ANG (Netherlands Antilles guilder, Curaçao and Sint Maarten, Caribbean)</option>
+<option value="AWG">AWG (Aruban florin)</option>
+<option value="BBD">BBD (Barbadian[Barbados]/Bajan dollar)</option>
+<option value="BMD">BMD (Bermudian dollar)</option>
+<option value="BSD">BSD (Bahamian dollar)</option>
+<option value="CUC">CUC (Cuban convertible peso)</option>
+<option value="CUP">CUP (Cuban peso, moneda nacional)</option>
+<option value="DOP">DOP (Dominican peso)</option>
+<option value="JMD">JMD (Jamaican dollar)</option>
+<option value="TTD">TTD (Trinidad and Tobago dollar)</option>
+<option value="XCD">XCD (East Caribbean dollar)</option>
+</optgroup><optgroup label="Other Arab and Middle Eastern coins">
+<option value="BHD">BHD (Bahraini dinar)</option>
+<option value="EGP">EGP (Egyptian pound/piastre, LE)</option>
+<option value="JOD">JOD (Jordanian dinar)</option>
+<option value="KWD">KWD (Kuwaiti dinar/fils)</option>
+<option value="OMR">OMR (Omani rial/baisa)</option>
+<option value="QAR">QAR (Qatari rial/dirham)</option>
+<option value="SAR">SAR (Saudi rial)</option>
+</optgroup><optgroup label="Other Asian coins">
+<option value="AMD">AMD (Armenian dram)</option>
+<option value="AZN">AZN (Azerbaijani[Az&#601;rbaycan]/Azeri manat/q&#601;pik (AZM))</option>
+<option value="BND">BND (Bruneian dollar)</option>
+<option value="CNY">CNY (Chinese yuan, Renminbi, RMB)</option>
+<option value="GEL">GEL (Georgian lari)</option>
+<option value="KRW">KRW ([South] Korean won)</option>
+<option value="KZT">KZT (Kazakhstani tenge)</option>
+<option value="LKR">LKR (Sri Lankan rupee)</option>
+<option value="MOP">MOP (Macanese[Macao/Macau] pataca)</option>
+<option value="MYR">MYR (Malaysian ringgit)</option>
+<option value="PHP">PHP (Philippine/Filipino peso)</option>
+<option value="USD">USD (East Timorese/Timor l'Este centavos of the US dollar)</option>
+</optgroup><optgroup label="Latin American coins">
+<option value="ARS">ARS (Argentinian peso)</option>
+<option value="BRL">BRL (Brazilian real/reais)</option>
+<option value="BZD">BZD (Belize dollar)</option>
+<option value="CLP">CLP (Chilean peso)</option>
+<option value="COP">COP (Colombian peso)</option>
+<option value="CRC">CRC (Costa Rican colon)</option>
+<option value="GTQ">GTQ (?)</option>
+<option value="GYD">GYD (?)</option>
+<option value="HNL">HNL (?)</option>
+<option value="MXN">MXN (Mexican peso (MXP))</option>
+<option value="NIO"> (?)</option>
+<option value="PAB">Panaman balboa (USD)</option>
+<option value="PEN">Peruvian [nuevo] sol ()</option>
+<option value="SRD"> ()</option>
+<option value="USD">USD (Ecuadorean centavos of the US dollar)</option>
+<option value="UYU">UYU (Uruguayan peso)</option>
+</optgroup><optgroup label="Other Oceania/Pacific coins">
+<option value="FJD">FJD (Fijian dollar)</option>
+<option value="PGK">PGK ()</option>
+<option value="SBD">SBD ()</option>
+<option value="TOP">TOP ()</option>
+<option value="VUV">VUV (Vanuatuan vatu)</option>
+<option value="WST">WST ([West] Samoan tala)</option>
+<option value="XPF">XPF (CPF/Pacific/Polynesian franc [Change Franc Pacifique])</option>
+</optgroup><optgroup label="Other African coins">
+<option value="CVE">CVE (Cape Verdean[Cabo Verde] escudo)</option>
+<option value="GHS">GHS (Ghanaian cedi/pesewa)</option>
+<option value="KES">KES (Kenyan shilling)</option>
+<option value="LSL">LSL (Lesotho loti)</option>
+<option value="MUR">MUR (Mauritian rupee)</option>
+<option value="NAD">NAD (Namibian dollar)</option>
+<option value="SZL">SZL (Swazi/eSwatini [ema]lilangeni)</option>
+<option value="TND">TND (Tunisian dinar/centime)</option>
+<option value="TZS">TZS (Tanzanian shilling)</option>
+<option value="UGX">UGX (Ugandan shilling)</option>
+<option value="ZAR">ZAR (South African/Zuid Afrika rand)</option>
+<option value="ZMW">ZMW (Zambian kwacha/ngwee)</option>
+</optgroup></select></label></datalist></div>
+
+<p>Start typing in any field and the others will update accordingly.
+<input id="t" type="button" onclick="t()" value="Reveal old and special coins"></p>
+
+<table><thead><tr><th>Denomination</th><th>Number of coins</th><th>...or number of full bags</th><th id="z">Total Value</th><th id="w">Weight per coin (bag)</th><th>Total Weight (g)
+</th></tr></thead><tbody><tr><td>€2 in bags of €50</td><td><input id="a0" type="text" oninput="y(&#39;a&#39;,0)"></td><td><input class="bag" id="d0" type="text" oninput="y(&#39;d&#39;,0)"></td><td><input id="b0" type="text" oninput="y(&#39;b&#39;,0)" onchange="y(&#39;a&#39;,0)"></td><td>8.5g (×25= 212.5g)</td><td><input id="c0" type="text" oninput="y(&#39;c&#39;,0)" onchange="y(&#39;a&#39;,0)"></td></tr><tr><td>€1 in bags of €25</td><td><input id="a1" type="text" oninput="y(&#39;a&#39;,1)"></td><td><input class="bag" id="d1" type="text" oninput="y(&#39;d&#39;,1)"></td><td><input id="b1" type="text" oninput="y(&#39;b&#39;,1)" onchange="y(&#39;a&#39;,1)"></td><td>7.5g (×25= 187.5g)</td><td><input id="c1" type="text" oninput="y(&#39;c&#39;,1)" onchange="y(&#39;a&#39;,1)"></td></tr><tr><td>50¢ in bags of €25</td><td><input id="a2" type="text" oninput="y(&#39;a&#39;,2)"></td><td><input class="bag" id="d2" type="text" oninput="y(&#39;d&#39;,2)"></td><td><input id="b2" type="text" oninput="y(&#39;b&#39;,2)" onchange="y(&#39;a&#39;,2)"></td><td>7.8g (×50= 390g)</td><td><input id="c2" type="text" oninput="y(&#39;c&#39;,2)" onchange="y(&#39;a&#39;,2)"></td></tr><tr><td>20¢ in bags of €10</td><td><input id="a3" type="text" oninput="y(&#39;a&#39;,3)"></td><td><input class="bag" id="d3" type="text" oninput="y(&#39;d&#39;,3)"></td><td><input id="b3" type="text" oninput="y(&#39;b&#39;,3)" onchange="y(&#39;a&#39;,3)"></td><td>5.74g (×50= 287g)</td><td><input id="c3" type="text" oninput="y(&#39;c&#39;,3)" onchange="y(&#39;a&#39;,3)"></td></tr><tr><td>10¢ in bags of €10</td><td><input id="a4" type="text" oninput="y(&#39;a&#39;,4)"></td><td><input class="bag" id="d4" type="text" oninput="y(&#39;d&#39;,4)"></td><td><input id="b4" type="text" oninput="y(&#39;b&#39;,4)" onchange="y(&#39;a&#39;,4)"></td><td>4.1g (×100= 410g)</td><td><input id="c4" type="text" oninput="y(&#39;c&#39;,4)" onchange="y(&#39;a&#39;,4)"></td></tr><tr><td>5¢ in bags of €5</td><td><input id="a5" type="text" oninput="y(&#39;a&#39;,5)"></td><td><input class="bag" id="d5" type="text" oninput="y(&#39;d&#39;,5)"></td><td><input id="b5" type="text" oninput="y(&#39;b&#39;,5)" onchange="y(&#39;a&#39;,5)"></td><td>3.92g (×100= 392g)</td><td><input id="c5" type="text" oninput="y(&#39;c&#39;,5)" onchange="y(&#39;a&#39;,5)"></td></tr><tr><td>2¢ in bags of €2</td><td><input id="a6" type="text" oninput="y(&#39;a&#39;,6)"></td><td><input class="bag" id="d6" type="text" oninput="y(&#39;d&#39;,6)"></td><td><input id="b6" type="text" oninput="y(&#39;b&#39;,6)" onchange="y(&#39;a&#39;,6)"></td><td>3.06g (×100= 306g)</td><td><input id="c6" type="text" oninput="y(&#39;c&#39;,6)" onchange="y(&#39;a&#39;,6)"></td></tr><tr><td>1¢ in bags of €1</td><td><input id="a7" type="text" oninput="y(&#39;a&#39;,7)"></td><td><input class="bag" id="d7" type="text" oninput="y(&#39;d&#39;,7)"></td><td><input id="b7" type="text" oninput="y(&#39;b&#39;,7)" onchange="y(&#39;a&#39;,7)"></td><td>2.3g (×100= 230g)</td><td><input id="c7" type="text" oninput="y(&#39;c&#39;,7)" onchange="y(&#39;a&#39;,7)"></td></tr><tr class="o"><td>German €5 coin</td><td><input class="p" id="a8" type="text" oninput="y(&#39;a&#39;,8)"></td><td><input class="bag p" id="d8" type="text" oninput="y(&#39;d&#39;,8)"></td><td><input class="p" id="b8" type="text" oninput="y(&#39;b&#39;,8)" onchange="y(&#39;a&#39;,8)"></td><td>9g (×1= 9g)</td><td><input class="p" id="c8" type="text" oninput="y(&#39;c&#39;,8)" onchange="y(&#39;a&#39;,8)"></td></tr></tbody><tfoot id="total"><tr><th>Totals:</th><th id="ct"></th><th id="bt"></th><th id="vt"></th><th id="peg"></th><th id="wt"></th></tr></tfoot></table><script>const x = document.getElementById('x');
+const ct = document.getElementById('ct');
+const vt = document.getElementById('vt');
+const wt = document.getElementById('wt');
+var bH = document.getElementById('h');	//container of <th>...(or number of full)
+var bF = document.getElementById('bt');	//container of <th>Total full
+
+function y(p,q){	//p is column, q is row (starts 0)
+var a = document.getElementById('a'+q);
+var b = document.getElementById('b'+q);
+var c = document.getElementById('c'+q);
+var d = document.getElementById('d'+q);	//d and bt may not exist
+const data = coins(x.value);	//x is currency code
+
+if(p=='a'){
+a.value = a.value.replace(/[^\d]/g,'');
+b.value = Math.round(data.denom[q].value*a.value*100+Number.EPSILON)/100;
+c.value = Math.round(data.denom[q].weight*a.value*100+Number.EPSILON)/100;
+if(d)d.value = a.value/data.denom[q].bag;
+}
+else{if(p=='b'){
+b.value = r(b.value.replace(/[^\d\.]/g,''));
+a.value = Math.trunc((parseFloat(b.value?b.value:0)+Number.EPSILON)/data.denom[q].value);	//ternary prevents NaN when blank
+c.value = Math.round(data.denom[q].weight*a.value*100+Number.EPSILON)/100;
+if(d)d.value = a.value/data.denom[q].bag;
+}
+else{if(p=='c'){
+c.value = r(c.value.replace(/[^\d\.]/g,''));
+a.value = Math.trunc((parseFloat(c.value)+data.denom[q].weight/4.1)/data.denom[q].weight);	//÷4.1 helps when slightly underweight
+b.value = Math.round(data.denom[q].value*a.value*100+Number.EPSILON)/100;
+if(d)d.value = a.value/data.denom[q].bag;
+}else{
+d.value = d.value.replace(/[^\d]/g,'');
+a.value = data.denom[q].bag*d.value;
+b.value = Math.round(data.denom[q].value*a.value*100+Number.EPSILON)/100;
+c.value = Math.round(data.denom[q].weight*a.value*100+Number.EPSILON)/100;
+}}}
+yy(data);
+}function r(z){z=z.split('.');return z.shift()+(z.length?'.'+z.join(''):'')}	//removes multiple decimal points
+
+
+function yy(data){
+var y=0;let bt = document.getElementById('bt');			//sum each column (y holds the sums)
+
+for(let i=0;i<data.denom.length;i++){let j=document.getElementById('a'+i);
+j=parseInt(j.value);y+=j?j:0}
+ct.innerHTML=y+' piece'+(y==1?'':'s');y=0;
+
+if(bt){for(let i=0;i<data.denom.length;i++){let j=document.getElementById('d'+i);
+j=Math.ceil(j.value);y+=j?j:0}							//half-full bags count as 1
+bt.innerHTML=y+' '+data.bags+(y==1?'':'s');y=0;}
+
+for(let i=0;i<data.denom.length;i++){let j=document.getElementById('b'+i);
+j=parseFloat(j.value);y+=j?j:0}
+y=(Math.round(y*100+Number.EPSILON)/100).toString();	//inputs won't contain decimals if smallest coin is 1
+if(data['3dp']){if(y.charAt(y.length-2)=='.')y+='00';	//adds trailing zeroes if there is a decimal point
+if(y.charAt(y.length-3)=='.')y+='0';}
+else{if(y.charAt(y.length-2)=='.')y+='0';}
+vt.innerHTML=data.front+' '+y+' '+data.back;
+
+if(data.peg){let peg = document.getElementById('peg');
+peg.innerHTML='= '+data.peg.symbol+' '+(y/data.peg.rate).toFixed(2)+' (at fixed rate)';
+}y=0;
+
+for(i=0;i<data.denom.length;i++){let j=document.getElementById('c'+i);
+j=parseFloat(j.value);y+=j?j:0}
+y=Math.ceil(y);if(y>1995){y=Math.ceil(y/10)*10;if(y>49980){y=Math.ceil(y/100)*100;
+if(y>999800)y=Math.ceil(y/1000)*1000;}}			//round the total weight
+wt.innerHTML=(y>=1000)?y/1000+' kg':y+'g';
+}												//end yy()
+
+function z(s){	//change the currency
+if(s)x.value=document.getElementById('s').value;
+var total = document.getElementById('total');
+var w = document.getElementById('w');
+var peg = document.getElementById('peg');
+var data = coins(x.value=x.value.toUpperCase());	//x is currency code
+if(!data)data=coins(x.value='EUR');					//if invalid currency, set and get EUR. ??implement SEARCH?
+ct.innerHTML=vt.innerHTML=wt.innerHTML=peg.innerHTML='';	//clear tfoot
+
+if(bH){bH.parentNode.removeChild(bH);
+bF.parentNode.removeChild(bF);						//always remove bags column if it exists
+bH=false;bF=false;w.innerHTML='Weight per coin';}
+
+if(data.bags){										//because here it is added back if needed
+w.innerHTML+=' ('+data.bags+')';
+bH = document.createElement('th');
+bF = document.createElement('th');
+let z = document.getElementById('z');
+bH.innerHTML = '...or number of full '+data.bags+'s';
+bF.setAttribute('id','bt');
+z.parentNode.insertBefore(bH,z);
+vt.parentNode.insertBefore(bF,vt);}					//end if bags
+
+let tb = total.previousSibling;
+tb.parentNode.removeChild(tb);
+tb = document.createElement('tbody');
+for(let i=0;i<data.denom.length;i++)tb.innerHTML+=cr(data.denom[i],data.bags,i);
+total.parentNode.insertBefore(tb,total);			//create the main part of the table and insert it
+}													//end z() (currency changer)
+
+function cr(p,bags,i){					//inserts rows. p is denomination as denom[] index
+return'<tr'+(p.old?' class="o"':'')+'><td>'+p.coin+
+'<td><input'+(p.old?' class="p"':'')+' id="a'+i+'" type="text" oninput="y(\'a\','+i+')">'+
+(bags?'<td><input class="bag'+(p.old?' p':'')+'" id="d'+i+'" type="text" oninput="y(\'d\','+i+')">':'')+
+'<td><input'+(p.old?' class="p"':'')+' id="b'+i+'" type="text" oninput="y(\'b\','+i+')" onchange="y(\'a\','+i+
+')"><td>'+p.weight+'g'+(bags?' (×'+p.bag+'= '+Math.round(p.weight*p.bag*100+Number.EPSILON)/100+'g)':'')+
+'<td><input'+(p.old?' class="p"':'')+' id="c'+i+'" type="text" oninput="y(\'c\','+i+')" onchange="y(\'a\','+i+')">';}
+
+function t(){	//show, else hide old rows (class=o)
+var t = document.getElementById('t');
+if(document.styleSheets[0].cssRules[0].style.display=='none'){
+document.styleSheets[0].cssRules[0].style.display='table-row';
+t.value="Hide old and special coins";}
+else{document.styleSheets[0].cssRules[0].style.display='none';
+let u = document.getElementsByClassName('p');
+t.value="Reveal old and special coins";
+for(let v=u.length-1;~v;v--)u[v].value='';	//clear contents
+yy(coins(x.value));}						//recalculate totals without old rows
+}
+
+function coins(c){
+if(c=='GBP')return{"front":"£","back":"","bags":"bag","denom":[
+{"coin":"£2 in bags of £20","value":2,"bag":10,"weight":12},
+{"coin":"£1 in bags of £20","value":1,"bag":20,"weight":8.75},
+{"coin":"50p in bags of £10","value":0.5,"bag":20,"weight":8},
+{"coin":"20p in bags of £10","value":0.2,"bag":50,"weight":5},
+{"coin":"10p in bags of £5","value":0.1,"bag":50,"weight":6.5},
+{"coin":"5p in bags of £5","value":0.05,"bag":100,"weight":3.25},
+{"coin":"2p in bags of £1","value":0.02,"bag":50,"weight":7.12},
+{"coin":"1p in bags of £1","value":0.01,"bag":100,"weight":3.56},
+{"coin":"commemorative £5","value":5,"bag":1,"weight":28.28,"old":1},
+{"coin":"commemorative £2","value":2,"bag":10,"weight":15.98,"old":1},
+{"coin":"Jersey quadrangular £1 (1981)","value":1,"bag":20,"weight":9,"old":1},
+{"coin":"old round £1","value":1,"bag":20,"weight":9.5,"old":1},
+{"coin":"Jersey commemorative large round 50p (2017)","value":0.5,"bag":20,"weight":28,"old":1},
+{"coin":"old large 50p","value":0.5,"bag":20,"weight":13.5,"old":1},
+{"coin":"25p / crown","value":0.25,"bag":40,"weight":28.28,"old":1},
+{"coin":"old large 10p / florin","value":0.1,"bag":50,"weight":11.31,"old":1},
+{"coin":"old large 5p / shilling","value":0.05,"bag":100,"weight":5.655,"old":1},
+{"coin":"½p in bags of £1","value":0.005,"bag":200,"weight":1.78,"old":1},
+{"coin":"half-crown (2s6d, 12.5p)","value":0.125,"bag":8,"weight":14.14,"old":1},
+{"coin":"sixpence (6d, 2.5p)","value":0.025,"bag":40,"weight":2.83,"old":1},
+{"coin":"threepence (3d, 1.25p)","value":0.0125,"bag":80,"weight":6.8,"old":1},
+{"coin":"Jersey fourth-shilling (1957-60)","value":0.0125,"bag":80,"weight":4.65,"old":1},
+{"coin":"Guernsey thick threepence (1959-66)","value":0.0125,"bag":80,"weight":6.72,"old":1},
+{"coin":"Guernsey thin threepence (1956)","value":0.0125,"bag":80,"weight":3.6,"old":1},
+{"coin":"penny (1d, 0.4167p)","value":0.0041666666,"bag":240,"weight":9.45,"old":1},
+{"coin":"Guernsey 8 doubles (old penny)","value":0.0041666666,"bag":240,"weight":9.7,"old":1},
+{"coin":"half-penny (½d, 0.2083p)","value":0.0020833333,"bag":480,"weight":5.67,"old":1},
+{"coin":"Guernsey 4 doubles (old halfpenny)","value":0.0041666666,"bag":240,"weight":4.82,"old":1},
+{"coin":"farthing (¼d, 0.1042p)","value":0.0010416666,"bag":960,"weight":2.83,"old":1}]};
+
+if(c=='EUR')return{"front":"€","back":"","bags":"bag","denom":[
+{"coin":"&euro;2 in bags of €50","value":2,"bag":25,"weight":8.5},
+{"coin":"&euro;1 in bags of €25","value":1,"bag":25,"weight":7.5},
+{"coin":"50&cent; in bags of €25","value":0.5,"bag":50,"weight":7.8},
+{"coin":"20&cent; in bags of €10","value":0.2,"bag":50,"weight":5.74},
+{"coin":"10&cent; in bags of €10","value":0.1,"bag":100,"weight":4.1},
+{"coin":"5&cent; in bags of €5","value":0.05,"bag":100,"weight":3.92},
+{"coin":"2&cent; in bags of €2","value":0.02,"bag":100,"weight":3.06},
+{"coin":"1&cent; in bags of €1","value":0.01,"bag":100,"weight":2.3},
+{"coin":"German &euro;5 coin","value":5,"bag":1,"weight":9,"old":1}]};
+
+if(c=='ATS')return{"front":"öS","back":"","bags":false,"denom":[
+{"coin":"S 50","value":50,"weight":8.15},
+{"coin":"S 20","value":20,"weight":8},
+{"coin":"S 10","value":10,"weight":6.2},
+{"coin":"S 5","value":5,"weight":4.8},
+{"coin":"S 1","value":1,"weight":4.2},
+{"coin":"50 gr","value":0.5,"weight":3},
+{"coin":"10 gr","value":0.1,"weight":1.1},
+{"coin":"5 gr","value":0.05,"weight":2.5},
+{"coin":"2 gr","value":0.02,"weight":0.9}],"peg":{"symbol":"&euro;","rate":13.7603}};
+
+if(c=='DEM')return{"front":"DM","back":"","bags":false,"denom":[
+{"coin":"DM 5","value":5,"weight":10},
+{"coin":"DM 2","value":2,"weight":7},
+{"coin":"DM 1","value":1,"weight":5.5},
+{"coin":"50 pf","value":0.5,"weight":3.5},
+{"coin":"10 pf","value":0.1,"weight":4},
+{"coin":"5 pf","value":0.05,"weight":3},
+{"coin":"2 pf (1968-2001)","value":0.02,"weight":2.9},
+{"coin":"1 pf","value":0.01,"weight":2},
+{"coin":"DM 5 (1951-75), silver","value":5,"weight":11.2,"old":1},
+{"coin":"2 pf (1950-68)<br>non-magnetic","value":0.02,"weight":3.25,"old":1}],"peg":{"symbol":"&euro;","rate":1.95583}};
+
+if(c=='ESP')return{"front":"","back":"Ptas","bags":false,"denom":[
+{"coin":"500 Ptas","value":500,"weight":12},
+{"coin":"200 Ptas","value":200,"weight":10.5},
+{"coin":"100 Ptas","value":100,"weight":9.3},
+{"coin":"50 Ptas","value":50,"weight":5.6},
+{"coin":"25 Ptas","value":25,"weight":4.25},
+{"coin":"10 Ptas","value":10,"weight":4},
+{"coin":"5 Ptas","value":5,"weight":3},
+{"coin":"1 Ptas","value":1,"weight":0.55}],"peg":{"symbol":"&euro;","rate":166.386}};
+
+if(c=='IEP')return{"front":"IR£","back":"","bags":"bag","denom":[
+{"coin":"£1 in bags of £20","value":1,"bag":20,"weight":10},
+{"coin":"50p in bags of £10","value":0.5,"bag":20,"weight":13.5},
+{"coin":"20p in bags of £10","value":0.2,"bag":50,"weight":8.47},
+{"coin":"10p in bags of £5","value":0.1,"bag":50,"weight":5.45},
+{"coin":"large 10p / florin","value":0.1,"bag":50,"weight":11.3104},
+{"coin":"5p in bags of £5","value":0.05,"bag":100,"weight":3.25},
+{"coin":"large 5p / shilling","value":0.05,"bag":100,"weight":5.6552},
+{"coin":"2p in bags of £1","value":0.02,"bag":50,"weight":7.128},
+{"coin":"1p in bags of £1","value":0.01,"bag":100,"weight":3.564},
+{"coin":"½p in bags of £1","value":0.005,"bag":200,"weight":1.782},
+{"coin":"10 shilling (silver)","value":0.5,"bag":20,"weight":18.144},
+{"coin":"half-crown (2s6d, 12.5p)","value":0.125,"bag":8,"weight":14.14},
+{"coin":"sixpence (6d, 2.5p)","value":0.025,"bag":40,"weight":4.536},
+{"coin":"threepence (3d, 1.25p)","value":0.0125,"bag":80,"weight":3.24},
+{"coin":"penny (1d, 0.4167p)","value":0.0041666666,"bag":240,"weight":9.45},
+{"coin":"half-penny (½d, 0.2083p)","value":0.0020833333,"bag":480,"weight":5.67},
+{"coin":"farthing (¼d, 0.1042p)","value":0.0010416666,"bag":960,"weight":2.835}],"peg":{"symbol":"&euro;","rate":0.787564}};
+
+if(c=='EEK')return{"front":"","back":"EEK","bags":false,"denom":[
+{"coin":"5 krooni","value":5,"weight":7.1},
+{"coin":"1 kroon (1998-2006)<br>Nordic gold","value":1,"weight":5},
+{"coin":"1 kroon (1992-95)<br>cupronickel","value":1,"weight":5.44},
+{"coin":"50 senti","value":0.5,"weight":3},
+{"coin":"20 senti (1997-2008)<br>nickel-plated steel","value":0.2,"weight":2},
+{"coin":"20 senti (1992-96)<br>aluminium bronze","value":0.2,"weight":2.27},
+{"coin":"10 senti","value":0.1,"weight":1.87},
+{"coin":"5 senti","value":0.05,"weight":1.29}],"peg":{"symbol":"&euro;","rate":15.6466}};
+
+if(c=='LTL')return{"front":"Lt","back":"","bags":false,"denom":[
+{"coin":"5 litai (1998-2009, bimetallic)","value":5,"weight":10.1},
+{"coin":"5 litai (1991, cupronickel)","value":5,"weight":4.36},
+{"coin":"2 litai (1998-2010, bimetallic)","value":2,"weight":7.5},
+{"coin":"2 litai (1991, cupronickel)","value":2,"weight":3.46},
+{"coin":"1 litas (1998-2010)","value":1,"weight":6.25},
+{"coin":"1 litas (1991)","value":1,"weight":2.35},
+{"coin":"50 cent&#371; (1997-2000, nickel-brass)","value":0.5,"weight":6},
+{"coin":"50 cent&#371; (1991, bronze)","value":0.5,"weight":3.03},
+{"coin":"20 cent&#371; (1997-2000, nickel-brass)","value":0.2,"weight":4.8},
+{"coin":"20 cent&#371; (1991, bronze)","value":0.2,"weight":2.1},
+{"coin":"10 cent&#371; (1997-2010, nickel-brass)","value":0.1,"weight":2.6},
+{"coin":"10 cent&#371; (1991, bronze)","value":0.1,"weight":1.4},
+{"coin":"5 centai","value":0.05,"weight":1.4},
+{"coin":"2 centai","value":0.02,"weight":1.12},
+{"coin":"1 centas","value":0.01,"weight":0.83}],"peg":{"symbol":"&euro;","rate":3.4528}};
+
+if(c=='LVL')return{"front":"Ls","back":"","bags":false,"denom":[
+{"coin":"2 lati (bimetallic)","value":2,"weight":9.5},
+{"coin":"1 lats","value":1,"weight":4.8},
+{"coin":"50 sant&#299;mu","value":0.5,"weight":3.5},
+{"coin":"20 sant&#299;mu","value":0.2,"weight":4},
+{"coin":"10 sant&#299;mu","value":0.1,"weight":3.25},
+{"coin":"5 sant&#299;mi","value":0.05,"weight":2.5},
+{"coin":"2 sant&#299;mi","value":0.02,"weight":1.9},
+{"coin":"1 sant&#299;ms","value":0.01,"weight":1.6},
+{"coin":"2 lati (1992, unimetallic)","value":2,"weight":6,"old":1}],"peg":{"symbol":"&euro;","rate":0.702804}};
+
+if(c=='DKK')return{"front":"","back":"kr","bags":false,"denom":[
+{"coin":"20 kr","value":20,"weight":9.3},
+{"coin":"10 kr","value":10,"weight":7},
+{"coin":"10 kr (1979-88)","value":10,"weight":12.5,old:1},
+{"coin":"5 kr","value":5,"weight":9.2},
+{"coin":"5 kr (1973-88)","value":5,"weight":15,old:1},
+{"coin":"2 kr","value":2,"weight":5.9},
+{"coin":"2 kr (1947-59)","value":2,"weight":13,old:1},
+{"coin":"1 kr ","value":1,"weight":3.6},
+{"coin":"1 kr (1960-89, copper-nickel)","value":1,"weight":6.8,old:1},
+{"coin":"1 kr (1924-60, aluminium-bronze)","value":1,"weight":6.5,old:1},
+{"coin":"50 øre","value":0.5,"weight":4.3}]};
+
+if(c=='ISK')return{"front":"","back":"kr","bags":false,"denom":[
+{"coin":"100 kr","value":100,"weight":8.5},
+{"coin":"50 kr","value":50,"weight":8.25},
+{"coin":"10 kr (magnetic, 1996-)","value":10,"weight":6.9},
+{"coin":"10 kr (1984,87,94)","value":10,"weight":8},
+{"coin":"5 kr (magnetic, 1996-)","value":5,"weight":5.6},
+{"coin":"5 kr (1981,84,87,92)","value":5,"weight":6.5},
+{"coin":"1 kr (magnetic, 1989-)","value":1,"weight":4},
+{"coin":"1 kr (1981,84,87)","value":1,"weight":4.5}]};
+
+if(c=='NOK')return{"front":"","back":"kr","bags":false,"denom":[
+{"coin":"20 kr","value":20,"weight":9.9},
+{"coin":"10 kr","value":10,"weight":6.8},
+{"coin":"5 kr","value":5,"weight":7.35},
+{"coin":"1 kr","value":1,"weight":4.35},
+{"coin":"50 øre","value":0.5,"weight":3.6,"old":1},
+{"coin":"10 kr (1983-91)","value":10,"weight":9,"old":1},
+{"coin":"5 kr (1963-97)","value":5,"weight":11.5,"old":1}]};
+
+if(c=='SEK')return{"front":"","back":"kr","bags":false,"denom":[
+{"coin":"10 kr","value":10,"weight":6.6},
+{"coin":"5 kr","value":5,"weight":6.1},
+{"coin":"2 kr","value":2,"weight":4.8},
+{"coin":"1 kr","value":1,"weight":3.6}]};
+
+if(c=='BAM')return{"front":"KM","back":"","bags":false,"denom":[
+{"coin":"5 KM","value":5,"weight":10.35},
+{"coin":"2 KM","value":2,"weight":6.9},
+{"coin":"1 KM","value":1,"weight":4.95},
+{"coin":"50 feninga","value":0.5,"weight":5.15},
+{"coin":"20 feninga","value":0.2,"weight":4.5},
+{"coin":"10 feninga","value":0.1,"weight":3.9},
+{"coin":"5 feninga","value":0.05,"weight":2.66}],"peg":{"symbol":"&euro;","rate":1.95583}};
+
+if(c=='BGN')return{"front":"","back":"&#1083;&#1074;.","bags":false,"denom":[
+{"coin":"2 leva","value":2,"weight":9},
+{"coin":"1 lev","value":1,"weight":7},
+{"coin":"50 stotinki","value":0.5,"weight":5},
+{"coin":"20 stotinki","value":0.2,"weight":4},
+{"coin":"10 stotinki","value":0.1,"weight":3},
+{"coin":"5 stotinki","value":0.05,"weight":3.5},
+{"coin":"2 stotinki","value":0.02,"weight":2.5},
+{"coin":"1 stotinka","value":0.01,"weight":1.8},
+{"coin":"50 BGL (1997)","value":0.05,"weight":3.5,"old":1},
+{"coin":"20 BGL (1997)","value":0.02,"weight":2.5,"old":1},
+{"coin":"10 BGL (1997)","value":0.01,"weight":1.5,"old":1},
+{"coin":"10 BGL (1992)","value":0.01,"weight":9,"old":1},
+{"coin":"5 BGL (1992)","value":0.005,"weight":6,"old":1},
+{"coin":"2 BGL (1992)","value":0.002,"weight":5,"old":1},
+{"coin":"1 BGL (1992)","value":0.001,"weight":4,"old":1},
+{"coin":"0.5 BGL (1992)","value":0.0005,"weight":3,"old":1},
+{"coin":"0.2 BGL (1992)","value":0.0002,"weight":2,"old":1},
+{"coin":"0.1 BGL (1992)","value":0.0001,"weight":1.6,"old":1}],"peg":{"symbol":"&euro;","rate":1.95583}};
+
+if(c=='GBS')return{"front":"£","back":"","bags":"bag","denom":[
+{"coin":"Isle of Man £5 (2017)","value":5,"bag":1,"weight":11.7},
+{"coin":"£2 in bags of £20","value":2,"bag":10,"weight":12},
+{"coin":"£1 in bags of £20","value":1,"bag":20,"weight":9.5},
+{"coin":"UK dodecagonal £1","value":1,"bag":20,"weight":8.75},
+{"coin":"50p in bags of £10","value":0.5,"bag":20,"weight":8},
+{"coin":"20p in bags of £10","value":0.2,"bag":50,"weight":5},
+{"coin":"10p in bags of £5","value":0.1,"bag":50,"weight":6.5},
+{"coin":"5p in bags of £5","value":0.05,"bag":100,"weight":3.25},
+{"coin":"2p in bags of £1","value":0.02,"bag":50,"weight":7.12},
+{"coin":"1p in bags of £1","value":0.01,"bag":100,"weight":3.56},
+{"coin":"Isle of Man nickel-brass Virenium £5 (1988-2003)","value":5,"bag":1,"weight":20.1,"old":1},
+{"coin":"Isle of Man £5 (1985-87)","value":5,"bag":1,"weight":19.12,"old":1},
+{"coin":"St Helena comemmorative £2 (2002)","value":2,"bag":10,"weight":11.81,"old":1},
+{"coin":"Isle of Man Virenium £2 (1986-97)","value":2,"bag":10,"weight":8.1,"old":1},
+{"coin":"Gibraltar Virenium £2 (1988-97)","value":2,"bag":10,"weight":8,"old":1},
+{"coin":"Isle of Man £1 (1978-82)","value":1,"bag":20,"weight":4,"old":1},
+{"coin":"large 50p","value":0.5,"bag":20,"weight":13.5,"old":1},
+{"coin":"large 10p","value":0.1,"bag":50,"weight":11.31,"old":1},
+{"coin":"large 5p","value":0.05,"bag":100,"weight":5.655,"old":1},
+{"coin":"½p in bags of £1","value":0.005,"bag":200,"weight":1.78,"old":1}]};
+
+if(c=='CHF')return{"front":"","back":"Fr","bags":"roll","denom":[
+{"coin":"5 Fr.","value":5,"bag":25,"weight":13.2},
+{"coin":"2 Fr.","value":2,"bag":50,"weight":8.8},
+{"coin":"1 Fr.","value":1,"bag":50,"weight":4.4},
+{"coin":"½ Fr.","value":0.5,"bag":50,"weight":2.2},
+{"coin":"20 ct./rp.","value":0.2,"bag":50,"weight":4},
+{"coin":"10 ct./rp.","value":0.1,"bag":50,"weight":3},
+{"coin":"5 ct./rp. (aluminium-bronze)","value":0.05,"bag":50,"weight":1.8},
+{"coin":"5 ct./rp. (1879-1980)","value":0.05,"bag":50,"weight":2,"old":1},
+{"coin":"1 ct./rp.","value":0.01,"bag":50,"weight":1.5,"old":1}]};
+
+if(c=='CZK')return{"front":"","back":"K&#269;","bags":"bag","denom":[
+{"coin":"50 K&#269;","value":50,"bag":100,"weight":9.7},
+{"coin":"20 K&#269;","value":20,"bag":100,"weight":8.43},
+{"coin":"10 K&#269;","value":10,"bag":100,"weight":7.62},
+{"coin":"5 K&#269;","value":5,"bag":100,"weight":4.8},
+{"coin":"2 K&#269;","value":2,"bag":100,"weight":3.7},
+{"coin":"1 K&#269;","value":1,"bag":100,"weight":3.6}]};
+
+if(c=='HRK')return{"front":"","back":"kn","denom":[
+{"coin":"5 kuna","value":5,"weight":7.45},
+{"coin":"2 kune","value":2,"weight":6.2},
+{"coin":"1 kuna","value":1,"weight":5},
+{"coin":"50 lipa","value":0.5,"weight":3.65},
+{"coin":"20 lipa","value":0.2,"weight":2.9},
+{"coin":"10 lipa","value":0.1,"weight":3.25},
+{"coin":"5 lipa","value":0.05,"weight":2.5},
+{"coin":"2 lipe","value":0.02,"weight":0.92},
+{"coin":"1 lipa","value":0.01,"weight":0.7}]};
+
+if(c=='HUF')return{"front":"","back":"Ft","bags":false,"denom":[
+{"coin":"200 Ft","value":200,"weight":9},
+{"coin":"100 Ft","value":100,"weight":8},
+{"coin":"50 Ft","value":50,"weight":7.7},
+{"coin":"20 Ft","value":20,"weight":6.9},
+{"coin":"10 Ft","value":10,"weight":6.1},
+{"coin":"5 Ft","value":5,"weight":4.2}]};
+
+if(c=='PLN')return{"front":"","back":"z&#322;","bags":false,"denom":[
+{"coin":"5 z&#322;otych","value":5,"weight":6.54},
+{"coin":"2 z&#322;ote","value":2,"weight":5.21},
+{"coin":"1 z&#322;oty","value":1,"weight":5},
+{"coin":"50 groszy","value":0.5,"weight":3.94},
+{"coin":"20 groszy","value":0.2,"weight":3.22},
+{"coin":"10 groszy","value":0.1,"weight":2.51},
+{"coin":"5 groszy","value":0.05,"weight":2.59},
+{"coin":"2 grosze","value":0.02,"weight":2.13},
+{"coin":"1 grosz","value":0.01,"weight":1.64},
+{"coin":"Commemorative 2 z&#322;ote (1996-2014)","value":2,"weight":8.15,"old":1},
+{"coin":"Commemorative 2 z&#322;ote (2003, with hole)","value":2,"weight":7.74,"old":1},
+{"coin":"Commemorative 2 z&#322;ote (1995)","value":2,"weight":10.8,"old":1}]};
+
+if(c=='USD')return{"front":"US$","back":"","bags":"roll","denom":[
+{"coin":"Sacagawea/golden/presidential<br>and Susan B. Anthony dollar","value":1,"bag":25,"weight":8.1},
+{"coin":"Eisenhower dollar","value":1,"bag":20,"weight":22.68,old:1},
+{"coin":"Half Dollar","value":0.5,"bag":20,"weight":11.34},
+{"coin":"Quarter Dollar","value":0.25,"bag":40,"weight":5.67},
+{"coin":"Dime","value":0.1,"bag":50,"weight":2.27},
+{"coin":"Nickel","value":0.05,"bag":40,"weight":5},
+{"coin":"Penny","value":0.01,"bag":50,"weight":2.5},
+{"coin":"Bronze penny","value":0.01,"bag":50,"weight":3.11},
+{"coin":"Steel cent","value":0.01,"bag":50,"weight":2.7,"old":1}]};
+
+if(c=='JPY')return{"front":"&yen;","back":"","bags":false,"denom":[
+{"coin":"&yen;500 (nickel-brass)","value":500,"weight":7},
+{"coin":"&yen;500 (copper-nickel)","value":500,"weight":7.2,"old":1},
+{"coin":"&yen;100","value":100,"weight":4.8},
+{"coin":"&yen;50","value":50,"weight":4},
+{"coin":"&yen;10","value":10,"weight":4.5},
+{"coin":"&yen;5","value":5,"weight":3.75},
+{"coin":"&yen;1","value":1,"weight":1},
+{"coin":"&yen;500 (bimetallic commemoratives, Heisei 20-)","value":500,"weight":7.1,"old":1},
+{"coin":"&yen;500 (commemoratives, Showa 60-Heisei 4)","value":500,"weight":13,"old":1},
+{"coin":"&yen;100 (commemoratives, Showa 47 & 51)","value":100,"weight":12,"old":1},
+{"coin":"&yen;100 (Expo'70, Showa 45)","value":100,"weight":9,"old":1},
+{"coin":"&yen;50 (Showa 34-41, with hole)","value":50,"weight":5,"old":1},
+{"coin":"&yen;50 (Showa 30-33, without hole)","value":50,"weight":5.5,"old":1}]};
+
+if(c=='AUD')return{"front":"A$","back":"","bags":"bag","denom":[
+{"coin":"$2","value":2,"bag":25,"weight":6.6},
+{"coin":"$1","value":1,"bag":20,"weight":9},
+{"coin":"50&cent;","value":0.5,"bag":20,"weight":15.55},
+{"coin":"20&cent;","value":0.2,"bag":50,"weight":11.31},
+{"coin":"10&cent;","value":0.1,"bag":100,"weight":5.655},
+{"coin":"5&cent;","value":0.05,"bag":100,"weight":2.8275},
+{"coin":"$5","value":5,"bag":1,"weight":20,"old":1},
+{"coin":"$5 (1996-8, bimetallic)","value":5,"bag":1,"weight":10.6,"old":1},
+{"coin":"$5 (1996, Donald Bradman)","value":5,"bag":1,"weight":28,"old":1},
+{"coin":"$1 (29mm-31mm diameter commemoratives<br>weight varies 13.3g-14.3g)","value":1,"bag":1,"weight":13.8,"old":1},
+{"coin":"$1 (2005 large commemoratives)","value":1,"bag":1,"weight":20,"old":1},
+{"coin":"round 50&cent; (80% silver)","value":0.5,"bag":20,"weight":13.28,"old":1},
+{"coin":"25&cent;","value":0.25,"bag":1,"weight":12,"old":1},
+{"coin":"2&cent;","value":0.02,"bag":100,"weight":5.2,"old":1},
+{"coin":"1&cent;","value":0.01,"bag":100,"weight":2.6,"old":1}]};
+
+if(c=='CAD')return{"front":"C$","back":"","bags":"roll","denom":[
+{"coin":"$2 toonie (2012-)","value":2,"bag":25,"weight":6.92},
+{"coin":"$2 toonie (1996-2012)","value":2,"bag":25,"weight":7.3},
+{"coin":"$1 loonie (2012-, multi-ply brass-steel)","value":1,"bag":25,"weight":6.27},
+{"coin":"$1 loonie (1987-2012, aureate)","value":1,"bag":25,"weight":7},
+{"coin":"$1 Voyageur dollar (1968-87, nickel)","value":1,"bag":20,"weight":15.62,"old":1},
+{"coin":"50&cent; (2001-)<br>nickel-plated steel","value":0.5,"bag":25,"weight":6.9,"old":1},
+{"coin":"50&cent; (1968-2000)<br>99.9% nickel","value":0.5,"bag":20,"weight":8.1,"old":1},
+{"coin":"25&cent; quarter (2001-)<br>nickel-plated steel","value":0.25,"bag":40,"weight":4.4},
+{"coin":"25&cent; quarter (1968-2001)<br>99.9% nickel","value":0.25,"bag":40,"weight":5.05},
+{"coin":"10&cent; dime (2001-)<br>nickel-plated steel","value":0.1,"bag":50,"weight":1.75},
+{"coin":"10&cent; dime (1968-2000)<br>99.9% nickel","value":0.1,"bag":50,"weight":2.07},
+{"coin":"5&cent; nickel (1999-)<br>P obverse, nickel-plated steel","value":0.05,"bag":40,"weight":3.95},
+{"coin":"5&cent; nickel (1982-2001, 2006)<br>no P, copper-nickel","value":0.05,"bag":40,"weight":4.6},
+{"coin":"5&cent; nickel (1922-81)<br>99.9% nickel","value":0.05,"bag":40,"weight":4.54},
+{"coin":"1&cent; penny (2000-2012)<br>copper-plated steel, magnetic","value":0.01,"bag":50,"weight":2.35,"old":1},
+{"coin":"1&cent; penny (1997-2012)<br>copper-plated zinc, non-magnetic","value":0.01,"bag":50,"weight":2.25,"old":1},
+{"coin":"1&cent; penny (1982-1996)<br>copper, dodecagonal","value":0.01,"bag":50,"weight":2.5,"old":1},
+{"coin":"1&cent; penny (1980-1981)<br>copper, light/thin","value":0.01,"bag":50,"weight":2.8,"old":1},
+{"coin":"1&cent; penny (1920-1979)<br>copper, heavy/thick","value":0.01,"bag":50,"weight":3.24,"old":1}]};
+
+if(c=='HKD')return{"front":"HK$","back":"","bags":"bag","denom":[
+{"coin":"$10","value":10,"bag":50,"weight":11},
+{"coin":"$5","value":5,"bag":40,"weight":13.5},
+{"coin":"$5 (decagonal)","value":5,"bag":40,"weight":10.76,"old":1},
+{"coin":"$2","value":2,"bag":100,"weight":8.41},
+{"coin":"$1","value":1,"bag":100,"weight":7.1},
+{"coin":"$1 (old)","value":1,"bag":100,"weight":11.66,"old":1},
+{"coin":"50&cent;","value":0.5,"bag":100,"weight":4.92},
+{"coin":"50&cent; (old)","value":0.5,"bag":100,"weight":5.85,"old":1},
+{"coin":"20&cent;","value":0.2,"bag":100,"weight":2.6},
+{"coin":"10&cent;","value":0.1,"bag":200,"weight":1.85},
+{"coin":"10&cent; (old)","value":0.1,"bag":200,"weight":4.54,"old":1},
+{"coin":"5&cent;","value":0.05,"bag":400,"weight":2.6,"old":1}],"peg":{"symbol":"US$","rate":7.8}};
+
+if(c=='NZD')return{"front":"NZ$","back":"","bags":"bag","denom":[
+{"coin":"$5 (weights vary 26g-31g)","value":5,"bag":1,"weight":28,"old":1},
+{"coin":"$2","value":2,"bag":50,"weight":10},
+{"coin":"$1","value":1,"bag":100,"weight":8},
+{"coin":"$1 (2017 40mm comemmoratives)","value":1,"bag":1,"weight":26.4,"old":1},
+{"coin":"$1 (2012-4 Hobbits, 2005-6 39mm comemmoratives)","value":1,"bag":1,"weight":20,"old":1},
+{"coin":"$1 (2006-9 39-40mm comemmoratives)","value":1,"bag":1,"weight":31.1,"old":1},
+{"coin":"$1 (comemmoratives, weights vary 27.0g-28.5g)","value":1,"bag":1,"weight":28.28,"old":1},
+{"coin":"$1 (1967-76 & some later commemoratives)","value":1,"bag":1,"weight":27.3,"old":1},
+{"coin":"50&cent;","value":0.5,"bag":20,"weight":5},
+{"coin":"20&cent;","value":0.2,"bag":50,"weight":4},
+{"coin":"10&cent;","value":0.1,"bag":100,"weight":3.3},
+{"coin":"old 50&cent;","value":0.5,"bag":20,"weight":13.61,"old":1},
+{"coin":"old 20&cent; (florin)","value":0.2,"bag":50,"weight":11.31,"old":1},
+{"coin":"old 10&cent; (shilling)","value":0.1,"bag":100,"weight":5.655,"old":1},
+{"coin":"old 5&cent;","value":0.05,"bag":100,"weight":2.8275,"old":1},
+{"coin":"2&cent;","value":0.02,"bag":100,"weight":4.14,"old":1},
+{"coin":"1&cent;","value":0.01,"bag":100,"weight":2.07,"old":1}]};
+
+if(c=='SGD')return{"front":"S$","back":"","bags":false,"denom":[
+{"coin":"$1 (3rd series)","value":1,"weight":7.62},
+{"coin":"$1 (2nd series)","value":1,"weight":6.3},
+{"coin":"$1 (1st series)","value":1,"weight":16.85,"old":1},
+{"coin":"50&cent; (3rd series)","value":0.5,"weight":6.56},
+{"coin":"50&cent; (2nd series)","value":0.5,"weight":7.29},
+{"coin":"50&cent; (1st series)","value":0.5,"weight":9.33,"old":1},
+{"coin":"20&cent (3rd series)","value":0.2,"weight":3.85},
+{"coin":"20&cent (2nd series)","value":0.2,"weight":4.5},
+{"coin":"20&cent (1st series)","value":0.2,"weight":5.66,"old":1},
+{"coin":"10&cent (3rd series)","value":0.1,"weight":2.36},
+{"coin":"10&cent (2nd series)","value":0.1,"weight":2.6},
+{"coin":"10&cent (1st series)","value":0.1,"weight":2.83,"old":1},
+{"coin":"5&cent (3rd series)","value":0.05,"weight":1.7},
+{"coin":"5&cent (2nd series)","value":0.05,"weight":1.56},
+{"coin":"5&cent (1st series, 1980-83, magnetic)","value":0.05,"weight":1.26,"old":1},
+{"coin":"5&cent (1971, More Food from the Sea)","value":0.05,"weight":1.24,"old":1},
+{"coin":"5&cent (1st series, 1967-84, non-magnetic)","value":0.05,"weight":1.41,"old":1},
+{"coin":"1&cent (2nd series)","value":0.01,"weight":1.24},
+{"coin":"1&cent (1st series, 1976-84, magnetic)","value":0.01,"weight":1.74,"old":1},
+{"coin":"1&cent (1st series, 1967-76, non-magnetic)","value":0.01,"weight":1.94,"old":1},
+{"coin":"$10 (2005)","value":10,"weight":20,"old":1},
+{"coin":"$10 (1980, 1993-2004)","value":10,"weight":28,"old":1},
+{"coin":"$10 (1981-1992, 1997 ASEAN)","value":10,"weight":28,"old":1},
+{"coin":"$5 (1992-2015 bimetallic, scalloped)","value":5,"weight":6.7,"old":1},
+{"coin":"$5 (1984-2010 copper-nickel, round)","value":5,"weight":20,"old":1},
+{"coin":"$5 (1981-83)","value":5,"weight":17,"old":1},
+{"coin":"$2 (2005-)","value":2,"weight":20,"old":1},
+{"coin":"$1 (2005-09, round)","value":1,"weight":18,"old":1},
+{"coin":"$1 (Old World Charm - same as 2nd series 50&cent;)","value":1,"weight":7.29,"old":1},
+{"coin":"$1 (1985-87, 2nd series copper-nickel, large)","value":1,"weight":10,"old":1}]};
+
+if(c=='TWD')return{"front":"NT$","back":"","bags":0,"denom":[
+{"coin":"$50 (brass 2001-<br>and bimetallic 1996-8)","value":50,"weight":10},
+{"coin":"$50 (1992/ROC81)","value":50,"weight":8.25,"old":1},
+{"coin":"$20","value":20,"weight":8.5},
+{"coin":"$10","value":10,"weight":7.5},
+{"coin":"$10 (ROC 54)","value":10,"weight":11,"old":1},
+{"coin":"$5","value":5,"weight":4.4},
+{"coin":"$5 (ROC59-70)","value":5,"weight":9.5,"old":1},
+{"coin":"$5 (ROC54)","value":5,"weight":8.9,"old":1},
+{"coin":"$1","value":1,"weight":3.8},
+{"coin":"$1 (ROC49-69)","value":1,"weight":6,"old":1},
+{"coin":"$0.5 (ROC70-77)","value":0.5,"weight":3,"old":1},
+{"coin":"$0.5 (ROC56-70)","value":0.5,"weight":3.4,"old":1}]};
+
+if(c=='AED')return{"front":"Dhs.","back":"","bags":false,"denom":[
+{"coin":"Dh5<br>(AH1401/1981)","value":5,"weight":14.25,"old":1},
+{"coin":"Dh1<br>(AH1433-/2012-, magnetic)","value":1,"weight":6.1},
+{"coin":"Dh1<br>(AH1415-33/1995-2012, non-magnetic)","value":1,"weight":6.4},
+{"coin":"Dh1<br>(28.5mm, AH1393-1410/1973-90)","value":1,"weight":11.3,"old":1},
+{"coin":"50 fils<br>(AH1434-/2013-, magnetic)","value":0.5,"weight":4.15},
+{"coin":"50 fils<br>(AH1415-28/1995-2007, non-magnetic)","value":0.5,"weight":4.4},
+{"coin":"50 fils<br>(25mm, round)","value":0.5,"weight":6.57,"old":1},
+{"coin":"25 fils<br>(AH1435-/2014-, magnetic)","value":0.25,"weight":3.48},
+{"coin":"25 fils<br>(AH1393-1432/1973-2011, non-magnetic)","value":0.25,"weight":3.5},
+{"coin":"10 fils<br>(AH1438-/2017-, magnetic)","value":0.1,"weight":2.9},
+{"coin":"10 fils<br>(AH1416-32/1996-2011, non-magnetic)","value":0.1,"weight":3},
+{"coin":"10 fils<br>(27mm, AH1393-1409/1973-89)","value":0.1,"weight":7.5,"old":1},
+{"coin":"5 fils<br>(16.5mm, AH1416-/1996-)","value":0.05,"weight":2.2},
+{"coin":"5 fils<br>(22mm, AH1393-1409/1973-89)","value":0.05,"weight":3.75,"old":1},
+{"coin":"1 fils","value":0.01,"weight":1.5}],"peg":{"symbol":"US$","rate":3.6725}};
+
+if(c=='ILS')return{"front":"&#8362;","back":"","bags":false,"denom":[
+{"coin":"&#8362;10","value":10,"weight":7},
+{"coin":"&#8362;5","value":5,"weight":8.2},
+{"coin":"&#8362;2","value":2,"weight":5.7},
+{"coin":"&#8362;1 (5754-/1994-, nickel-plated steel)","value":1,"weight":3.5},
+{"coin":"&#8362;1 (5745-53/1985-93, copper-nickel)","value":1,"weight":4},
+{"coin":"&#8362;1","value":1,"weight":3.5},
+{"coin":"&#8362;½","value":0.5,"weight":6.5},
+{"coin":"10 agorot","value":0.1,"weight":4}]};
+
+if(c=='MAD')return{"front":"Dh","back":"","bags":false,"denom":[
+{"coin":"Dh 10 (2002,-11 series)","value":10,"weight":9},
+{"coin":"Dh 10 (1995 series)","value":10,"weight":12},
+{"coin":"Dh 5 (2002,-11 series)","value":5,"weight":7.5},
+{"coin":"Dh 5 (1987 series)","value":5,"weight":6.8},
+{"coin":"Dh 5 (1980 series)","value":5,"weight":12},
+{"coin":"Dh 2","value":2,"weight":7},
+{"coin":"Dh 1","value":1,"weight":6},
+{"coin":"Dh ½/50 centimes","value":0.5,"weight":4},
+{"coin":"20 centimes","value":0.2,"weight":4},
+{"coin":"10 centimes","value":0.1,"weight":3},
+{"coin":"5 centimes","value":0.05,"weight":2},
+{"coin":"1 centime","value":0.01,"weight":0.7}]};
+
+if(c=='THB')return{"front":"&#3647;","back":"","bags":false,"denom":[
+{"coin":"&#3647;10 (bimetallic)","value":10,"weight":8.5},
+{"coin":"&#3647;10 (old, 32mm)","value":10,"weight":7,"old":1},
+{"coin":"&#3647;5 (light)","value":5,"weight":6},
+{"coin":"&#3647;5 (heavy)","value":5,"weight":7.5},
+{"coin":"&#3647;5 (old, 30mm)","value":5,"weight":12,"old":1},
+{"coin":"&#3647;5 (old, 28mm)","value":5,"weight":9,"old":1},
+{"coin":"&#3647;2 (golden)","value":2,"weight":4},
+{"coin":"&#3647;2 (silver)","value":2,"weight":4.4},
+{"coin":"&#3647;2 (old, 22mm)","value":2,"weight":7.35,"old":1},
+{"coin":"&#3647;2 (old, 27mm)","value":2,"weight":9,"old":1},
+{"coin":"&#3647;1 (nickel-plated steel)","value":1,"weight":3},
+{"coin":"&#3647;1 (copper-nickel)","value":1,"weight":3.4},
+{"coin":"&#3647;1 (old, 25mm)","value":1,"weight":7,"old":1},
+{"coin":"&#3647;1 (old, 26.9mm)","value":1,"weight":.5,"old":1},
+{"coin":"50 satang (18mm)","value":0.5,"weight":2.4},
+{"coin":"50 satang (20.5mm, 2523/1980)","value":0.5,"weight":4.9,"old":1},
+{"coin":"50 satang (20.5mm, 2493-2500/1950-7)","value":0.5,"weight":4.5,"old":1},
+{"coin":"25 satang (16mm)","value":0.25,"weight":1.9},
+{"coin":"25 satang (20.5mm, 2520/1977","value":0.25,"weight":2.8,"old":1},
+{"coin":"25 satang (20.5mm, 2493-2500/1950-7)","value":0.25,"weight":2.5,"old":1},
+{"coin":"10 satang","value":0.1,"weight":0.8},
+{"coin":"5 satang","value":0.05,"weight":0.6},
+{"coin":"1 satang","value":0.01,"weight":0.5}]};
+
+if(c=='ALL')return{"front":"","back":"L","bags":"tube","denom":[
+{"coin":"100 lekë","value":100,"bag":25,"weight":6.7},
+{"coin":"50 lekë","value":50,"bag":25,"weight":5.5},
+{"coin":"20 lekë","value":20,"bag":25,"weight":5},
+{"coin":"10 lekë","value":10,"bag":50,"weight":3.6},
+{"coin":"5 lekë","value":5,"bag":50,"weight":3.12},
+{"coin":"1 lek","value":1,"bag":50,"weight":3}]};
+
+if(c=='BYN')return{"front":"Br","back":"","bags":false,"denom":[
+{"coin":"2 rubles","value":2,"weight":5.81},
+{"coin":"1 ruble","value":1,"weight":5.6},
+{"coin":"50 copecks","value":0.5,"weight":3.95},
+{"coin":"20 copecks","value":0.2,"weight":3.7},
+{"coin":"10 copecks","value":0.1,"weight":2.8},
+{"coin":"5 copecks","value":0.05,"weight":2.7},
+{"coin":"2 copecks","value":0.02,"weight":2.1},
+{"coin":"1 copeck","value":0.01,"weight":1.55},
+{"coin":"Commemorative 1 ruble (37mm)","value":1,"weight":19.5,"old":1},
+{"coin":"Commemorative 1 ruble (33mm)","value":1,"weight":15.5,"old":1},
+{"coin":"Commemorative 1 ruble (32mm)","value":1,"weight":13.16,"old":1}]};
+
+if(c=='MDL')return{"front":"","back":"","bags":false,"denom":[
+{"coin":"10 lei","value":10,"weight":7.65},
+{"coin":"5 lei","value":5,"weight":7.1},
+{"coin":"2 lei","value":2,"weight":6.7},
+{"coin":"1 leu","value":1,"weight":4.45},
+{"coin":"50 bani","value":0.5,"weight":3.1},
+{"coin":"25 bani","value":0.25,"weight":0.95},
+{"coin":"10 bani","value":0.1,"weight":0.85},
+{"coin":"5 bani","value":0.05,"weight":0.75},
+{"coin":"1 ban","value":0.01,"weight":0.67}]};
+
+if(c=='MKD')return{"front":"","back":"den","bags":false,"denom":[
+{"coin":"50 denari","value":50,"weight":7.7},
+{"coin":"10 denari","value":10,"weight":6.6},
+{"coin":"5 denari","value":5,"weight":7.2},
+{"coin":"2 denari","value":2,"weight":6.2},
+{"coin":"1 denar","value":1,"weight":5.1},
+{"coin":"50 deni","value":0.5,"weight":4.1,"old":1}]};
+
+if(c=='RON')return{"front":"","back":"lei","bags":false,"denom":[
+{"coin":"50 bani","value":0.5,"weight":6.1},
+{"coin":"10 bani","value":0.1,"weight":4},
+{"coin":"5 bani","value":0.05,"weight":2.81},
+{"coin":"1 ban","value":0.01,"weight":2.4},
+{"coin":"5000 ROL","value":0.5,"weight":2.5,"old":1},
+{"coin":"1000 ROL","value":0.1,"weight":2,"old":1},
+{"coin":"500 ROL","value":0.05,"weight":3.75,"old":1},
+{"coin":"100 ROL","value":0.01,"weight":8.75,"old":1},
+{"coin":"1 ROL","value":0.0001,"weight":2.5,"old":1}]};
+
+if(c=='RSD')return{"front":"","back":"din","bags":false,"denom":[
+{"coin":"20 dinara","value":20,"weight":9},
+{"coin":"10 dinara","value":10,"weight":7.7},
+{"coin":"5 dinara (2013, brass-plated steel)","value":5,"weight":5.78},
+{"coin":"5 dinara (2005, 2011, brass)","value":5,"weight":6.13},
+{"coin":"5 dinara (2003, nickel-brass)","value":5,"weight":6.23},
+{"coin":"2 dinara (2009,-11,-13, brass-plated steel)","value":2,"weight":5.05},
+{"coin":"2 dinara (2006, brass)","value":2,"weight":5.15},
+{"coin":"2 dinara (2003, nickel-brass)","value":2,"weight":5.24},
+{"coin":"1 dinar (2009,-11,-13, brass-plated steel)","value":1,"weight":4.2},
+{"coin":"1 dinar (2005, brass)","value":1,"weight":4.26},
+{"coin":"1 dinar (2003, nickel-brass)","value":1,"weight":4.34}]};
+
+if(c=='RUB')return{"front":"&#8381;","back":"den","bags":false,"denom":[
+{"coin":"10 &#8381;","value":10,"weight":5.63},
+{"coin":"5 &#8381;","value":5,"weight":6},
+{"coin":"5 &#8381;","value":5,"weight":6.45},
+{"coin":"2 &#8381;","value":2,"weight":5},
+{"coin":"2 &#8381;","value":2,"weight":5.1},
+{"coin":"1 &#8381;","value":1,"weight":3},
+{"coin":"1 &#8381;","value":1,"weight":3.25},
+{"coin":"50 kopecks","value":0.5,"weight":2.75},
+{"coin":"50 kopecks","value":0.5,"weight":2.9},
+{"coin":"10 kopecks (magnetic)","value":0.1,"weight":1.85},
+{"coin":"10 kopecks (non-magnetic)","value":0.1,"weight":1.95},
+{"coin":"5 kopecks","value":0.05,"weight":2.6},
+{"coin":"1 kopeck","value":0.01,"weight":1.5}]};
+
+if(c=='TRY')return{"front":"TL","back":"den","bags":false,"denom":[
+{"coin":"1 &#8381;","value":1,"weight":3.25},
+{"coin":"50 kurus","value":0.5,"weight":2.75},
+{"coin":"25 kopecks","value":0.25,"weight":2.9},
+{"coin":"10 kopecks","value":0.1,"weight":1.95},
+{"coin":"5 kopecks","value":0.05,"weight":2.6}]};
+
+if(c=='UAH')return{"front":"TL","back":"den","bags":false,"denom":[
+{"coin":"1 &#8381;","value":1,"weight":3.25},
+{"coin":"1 &#8381;","value":1,"weight":3.25},
+{"coin":"1 &#8381;","value":1,"weight":3.25},
+{"coin":"1 &#8381;","value":1,"weight":3.25},
+{"coin":"50 kurus","value":0.5,"weight":2.75},
+{"coin":"25 kopecks","value":0.25,"weight":2.9},
+{"coin":"10 kopecks","value":0.1,"weight":1.95},
+{"coin":"5 kopecks","value":0.05,"weight":2.6}]};
+
+if(c=='PHP')return{"front":"&#8369;","back":"","bags":"bag","denom":[
+{"coin":"&#8369;10 (New Generation)","value":10,"bag":100,"weight":8},
+{"coin":"&#8369;10 (BSP)","value":10,"bag":100,"weight":8.7},
+{"coin":"&#8369;5 (New Generation)","value":5,"bag":100,"weight":7.4},
+{"coin":"&#8369;5 (BSP)","value":5,"bag":100,"weight":7.7},
+{"coin":"&#8369;1 (New Generation)","value":1,"bag":100,"weight":6},
+{"coin":"&#8369;1 (BSP, 2003-17, magnetic)","value":1,"bag":100,"weight":5.35},
+{"coin":"&#8369;1 (BSP, 1995-2003, non-magnetic)","value":1,"bag":100,"weight":6.1},
+{"coin":"25 sentimo (New Generation)","value":0.25,"bag":200,"weight":3.6},
+{"coin":"25 sentimo (BSP, 2004-17)","value":0.25,"bag":200,"weight":3.6},
+{"coin":"25 sentimo (BSP, 1995-2003)","value":0.25,"bag":200,"weight":3.8},
+{"coin":"10 sentimo (BSP)","value":0.1,"bag":200,"weight":2.5},
+{"coin":"5 sentimo (New Generation)","value":0.05,"bag":200,"weight":2.2},
+{"coin":"5 sentimo (BSP)","value":0.05,"bag":200,"weight":1.9},
+{"coin":"1 sentimo (New Generation)","value":0.01,"bag":200,"weight":1.9},
+{"coin":"1 sentimo (BSP)","value":0.01,"bag":200,"weight":2},]};
+
+if(c=='')return{"front":"","back":"","bags":false,"denom":[
+{"coin":"10 ","value":10,"weight":0},
+{"coin":"5 ","value":5,"weight":0},
+{"coin":"2 ","value":2,"weight":0},
+{"coin":"1 ","value":1,"weight":0}]};
+
+if(c=='')return{"front":"","back":"","bags":"bag","denom":[
+{"coin":"5 ","value":50,"bag":10,"weight":0},
+{"coin":"2 ","value":20,"bag":10,"weight":0},
+{"coin":"1 ","value":10,"bag":10,"weight":0},
+{"coin":"5 ","value":5,"bag":10,"weight":0},
+{"coin":"2 ","value":2,"bag":10,"weight":0},
+{"coin":"1 ","value":1,"bag":10,"weight":0}]};
+
+
+
+
+}let s=window.location.search.slice(1,4).toUpperCase();if(s){x.value=s;z();}</script></body><style id="stylish-1" class="stylish" type="text/css">/* License: CC0 Public Domain (creativecommons.org/publicdomain/zero/1.0/) */
+/* Version: 2014-09-27 (userstyles.org/styles/64023) */
+/* AGENT_SHEET */
+@namespace url(http://www.w3.org/1999/xhtml);</style></html>
